@@ -1,639 +1,301 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zimbabwe EcoCash Investment | Invest Today... Earn Tomorrow!</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        ecoBlue: '#003399',
-                        ecoBlueHover: '#002266',
-                        ecoLightBlue: '#f0f5ff',
-                        ecoRed: '#E31B23',
-                        ecoRedHover: '#b81219',
-                        ecoYellow: '#FFC72C',
-                        ecoGold: '#f59e0b',
-                        darkNavy: '#0a1128',
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
+    <title>EcoCash</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background: #f0f2f5;
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: clamp(10px, 2vw, 20px);
+        }
+        
+        header {
+            width: 100%;
+            max-width: 480px;
+            padding: clamp(10px, 3vw, 15px) clamp(15px, 4vw, 20px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: clamp(5px, 2vw, 10px);
+        }
+        
+        .menu-btn {
+            font-size: clamp(24px, 6vw, 28px);
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #333;
+        }
+        
+        .logo {
+            font-size: clamp(24px, 6vw, 28px);
+            font-weight: 700;
+        }
+        
+        .logo-eco {
+            color: #0066ff;
+        }
+        
+        .logo-cash {
+            color: #ff0000;
+        }
+        
+        .card {
+            background: white;
+            border-radius: clamp(16px, 5vw, 24px);
+            padding: clamp(24px, 6vw, 32px) clamp(20px, 5vw, 28px);
+            width: 100%;
+            max-width: 480px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        @media (min-width: 769px) {
+            body {
+                padding: clamp(15px, 3vw, 20px);
+                justify-content: center;
+            }
+            .card {
+                padding: clamp(30px, 5vw, 40px) clamp(25px, 4vw, 30px);
             }
         }
-    </script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        
+        .title {
+            font-size: clamp(22px, 5vw, 26px);
+            font-weight: 700;
+            color: #333;
+            margin-bottom: clamp(4px, 1.5vw, 6px);
         }
         
-        .hero-bg {
-            background: radial-gradient(120% 120% at 50% 10%, #002673 0%, #001238 60%, #050a17 100%);
+        .subtitle {
+            font-size: clamp(13px, 3.5vw, 15px);
+            color: #777;
+            margin-bottom: clamp(18px, 5vw, 24px);
         }
         
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+        .calc-section {
+            background: #f8f9ff;
+            border-radius: clamp(15px, 4vw, 20px);
+            padding: clamp(18px, 5vw, 24px);
+            margin-bottom: clamp(18px, 5vw, 24px);
+            text-align: left;
         }
         
-        .gold-badge {
-            background: linear-gradient(135deg, #FFF0B3 0%, #FFC72C 100%);
+        .calc-title {
+            font-size: clamp(16px, 4vw, 19px);
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: clamp(18px, 5vw, 24px);
+            color: #333;
         }
-        /* Custom range slider styles */
         
-        input[type=range] {
+        .input-group {
+            margin-bottom: clamp(24px, 7vw, 32px);
+        }
+        
+        .input-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: clamp(8px, 2vw, 10px);
+            font-weight: 600;
+            font-size: clamp(13px, 3.5vw, 15px);
+        }
+        
+        .input-label {
+            color: #333;
+        }
+        
+        .input-value {
+            color: #4361ee;
+            font-weight: 700;
+        }
+        
+        .slider {
             -webkit-appearance: none;
-            background: transparent;
-        }
-        
-        input[type=range]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            height: 26px;
-            width: 26px;
-            border-radius: 50%;
-            background: #FFC72C;
-            cursor: pointer;
-            border: 3px solid #003399;
-            box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-            margin-top: -9px;
-        }
-        
-        input[type=range]::-webkit-slider-runnable-track {
             width: 100%;
             height: 8px;
-            cursor: pointer;
-            background: #374151;
             border-radius: 4px;
+            background: #e0e0e0;
+            outline: none;
+        }
+        
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: clamp(24px, 6vw, 28px);
+            height: clamp(24px, 6vw, 28px);
+            border-radius: 50%;
+            background: #4361ee;
+            cursor: pointer;
+        }
+        
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            color: #999;
+            font-size: clamp(12px, 3vw, 14px);
+            margin-top: clamp(6px, 2vw, 8px);
+        }
+        
+        .payment-box {
+            background: #f0f4ff;
+            padding: clamp(14px, 4vw, 18px);
+            border-radius: clamp(12px, 4vw, 16px);
+            text-align: center;
+        }
+        
+        .payment-label {
+            display: block;
+            color: #666;
+            margin-bottom: clamp(6px, 2vw, 8px);
+            font-size: clamp(12px, 3vw, 14px);
+        }
+        
+        .payment-amount {
+            font-size: clamp(26px, 7vw, 30px);
+            font-weight: 700;
+            color: #4361ee;
+        }
+        
+        .apply-btn {
+            width: 100%;
+            padding: clamp(12px, 4vw, 16px);
+            background: linear-gradient(to right, #4361ee, #7209b7);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: clamp(16px, 4vw, 18px);
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: clamp(18px, 5vw, 24px);
+        }
+        
+        .features {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: clamp(10px, 3vw, 20px);
+        }
+        
+        .feature {
+            text-align: center;
+            color: #777;
+            font-size: clamp(11px, 3vw, 13px);
+            flex: 1 0 100px;
+        }
+        
+        .feature-icon {
+            font-size: clamp(32px, 8vw, 36px);
+            margin-bottom: clamp(6px, 2vw, 8px);
+        }
+        
+        footer {
+            padding: clamp(10px, 3vw, 15px);
+            color: #aaa;
+            font-size: clamp(11px, 3vw, 13px);
+            text-align: center;
+            flex-shrink: 0;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900 antialiased selection:bg-ecoBlue selection:text-white flex flex-col min-h-screen">
-
-    <!-- TOP ANNOUNCEMENT TICKER -->
-    <div class="bg-ecoBlue text-white text-xs py-2 px-4 border-b border-blue-900/50">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="flex items-center space-x-2 font-medium">
-                <span class="bg-ecoRed text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Official</span>
-                <span class="truncate">Zimbabwe EcoCash Investment Platform — Automated Handset Wallet Payouts</span>
-            </div>
-            <div class="flex items-center space-x-4 text-gray-200">
-                <span class="hidden md:inline"><i class="fa-solid fa-lock text-green-400 mr-1"></i> SSL 256-Bit Security</span>
-                <span><i class="fa-solid fa-headset text-ecoYellow mr-1"></i> 24/7 Support</span>
-            </div>
-        </div>
-    </div>
-
-    <!-- MAIN HEADER & NAVIGATION (NO LOGIN / REGISTER BUTTONS) -->
-    <header class="bg-white sticky top-0 z-40 shadow-sm border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-
-                <!-- Brand Logo -->
-                <a href="#home" class="flex items-center space-x-3">
-                    <div class="flex flex-col">
-                        <div class="flex items-center leading-none">
-                            <span class="text-3xl font-black text-ecoBlue tracking-tight">Eco</span>
-                            <span class="text-3xl font-black text-ecoRed tracking-tight">Cash</span>
-                        </div>
-                        <span class="text-[10px] font-bold text-gray-600 tracking-wider uppercase mt-0.5">Investment Zimbabwe</span>
-                    </div>
-                </a>
-
-                <!-- Desktop Navigation Links -->
-                <nav class="hidden md:flex items-center space-x-8 font-semibold text-sm text-gray-700">
-                    <a href="#home" class="hover:text-ecoBlue transition">Home</a>
-                    <a href="#about" class="hover:text-ecoBlue transition">About Us</a>
-                    <a href="#calculator" class="hover:text-ecoBlue transition">Investment Plans</a>
-                    <a href="#simulator" class="hover:text-ecoBlue transition">Deposit</a>
-                    <a href="#simulator" class="hover:text-ecoBlue transition">Withdraw</a>
-                    <a href="#contact" class="hover:text-ecoBlue transition">Contact Us</a>
-                </nav>
-
-                <!-- Mobile Menu Hamburger Button -->
-                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-700 hover:text-ecoBlue p-2 focus:outline-none">
-                    <i id="menuIcon" class="fa-solid fa-bars text-2xl"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Navigation Drawer -->
-        <div id="mobileDrawer" class="hidden md:hidden bg-white border-b border-gray-200 px-4 pt-2 pb-6 space-y-3">
-            <a href="#home" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-800 hover:text-ecoBlue border-b border-gray-100">Home</a>
-            <a href="#about" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-800 hover:text-ecoBlue border-b border-gray-100">About Us</a>
-            <a href="#calculator" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-800 hover:text-ecoBlue border-b border-gray-100">Investment Plans</a>
-            <a href="#simulator" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-800 hover:text-ecoBlue border-b border-gray-100">Deposit</a>
-            <a href="#simulator" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-800 hover:text-ecoBlue border-b border-gray-100">Withdraw</a>
-            <a href="#contact" onclick="toggleMobileMenu()" class="block py-2 text-base font-medium text-gray-800 hover:text-ecoBlue">Contact Us</a>
-        </div>
+<body>
+    <header>
+        <button class="menu-btn">☰</button>
+        <div class="logo"><span class="logo-eco">Eco</span><span class="logo-cash">Cash</span></div>
+        <div></div>
     </header>
-
-    <!-- HERO SECTION -->
-    <section id="home" class="hero-bg text-white relative overflow-hidden py-16 lg:py-24">
-        <!-- Background Ambient Glows -->
-        <div class="absolute top-0 right-0 w-96 h-96 bg-ecoBlue opacity-30 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-96 h-96 bg-ecoRed opacity-20 rounded-full blur-3xl pointer-events-none"></div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-                <!-- Hero Text & Value Proposition -->
-                <div class="lg:col-span-7 text-center lg:text-left space-y-6">
-                    <div class="inline-flex items-center space-x-2 bg-blue-900/60 border border-blue-400/30 px-3.5 py-1.5 rounded-full text-xs font-semibold text-ecoYellow">
-                        <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                        <span>Verified Zimbabwe EcoCash Investment</span>
+    <main class="card">
+        <div>
+            <h1 class="title">Get Your Loan Approved Fast</h1>
+            <p class="subtitle">Quick approval • Competitive rates • Flexible terms</p>
+            <div class="calc-section">
+                <h2 class="calc-title">Loan Calculator</h2>
+                <div class="input-group">
+                    <div class="input-header">
+                        <span class="input-label">Loan Amount</span>
+                        <span class="input-value" id="amountValue">$5,000</span>
                     </div>
-
-                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-                        Grow Your Money with <span class="text-transparent bg-clip-text bg-gradient-to-r from-ecoYellow to-yellow-200">Zimbabwe EcoCash</span> Investment!
-                    </h1>
-
-                    <p class="text-xl sm:text-2xl font-bold italic text-ecoYellow tracking-wide">
-                        "Invest Today... Earn Tomorrow!"
-                    </p>
-
-                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl font-normal leading-relaxed">
-                        Multiply your capital safely through our automated high-yield EcoCash profit system. Direct mobile wallet payouts processed instantly 24/7.
-                    </p>
-
-                    <!-- Feature Badges -->
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-left">
-                        <div class="glass-panel p-3 rounded-xl flex items-center space-x-2">
-                            <i class="fa-solid fa-shield-check text-green-400 text-lg"></i>
-                            <span class="text-xs font-semibold text-gray-200">Safe & Secure</span>
-                        </div>
-                        <div class="glass-panel p-3 rounded-xl flex items-center space-x-2">
-                            <i class="fa-solid fa-chart-line-up text-ecoYellow text-lg"></i>
-                            <span class="text-xs font-semibold text-gray-200">High Returns</span>
-                        </div>
-                        <div class="glass-panel p-3 rounded-xl flex items-center space-x-2">
-                            <i class="fa-solid fa-bolt text-yellow-400 text-lg"></i>
-                            <span class="text-xs font-semibold text-gray-200">Instant Deposits</span>
-                        </div>
-                        <div class="glass-panel p-3 rounded-xl flex items-center space-x-2">
-                            <i class="fa-solid fa-headset text-blue-300 text-lg"></i>
-                            <span class="text-xs font-semibold text-gray-200">24/7 Support</span>
-                        </div>
-                    </div>
-
-                    <!-- Call To Action Buttons -->
-                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
-                        <button onclick="redirectToApply()" class="w-full sm:w-auto bg-gradient-to-r from-ecoRed to-red-700 hover:from-red-600 hover:to-red-800 text-white font-extrabold text-lg px-8 py-4 rounded-xl shadow-xl hover:shadow-2xl transition transform active:scale-95 flex items-center justify-center space-x-3 border border-red-400/30">
-                            <span>Start Investing Now</span>
-                            <i class="fa-solid fa-arrow-right"></i>
-                        </button>
-                        <a href="#calculator" class="w-full sm:w-auto bg-white/10 hover:bg-white/20 text-white font-bold text-lg px-6 py-4 rounded-xl border border-white/20 backdrop-blur transition text-center">
-                            Calculate Profit
-                        </a>
-                    </div>
+                    <input type="range" class="slider" min="100" max="5000" value="5000" id="amountSlider">
+                    <div class="range-labels"><span>$100</span><span>$5,000</span></div>
                 </div>
-
-                <!-- Hero Graphic Card -->
-                <div class="lg:col-span-5 flex justify-center">
-                    <div class="relative w-full max-w-md">
-                        <div class="absolute -inset-1 bg-gradient-to-r from-ecoYellow to-ecoRed rounded-3xl blur-xl opacity-40"></div>
-
-                        <div class="relative bg-darkNavy border border-blue-500/30 rounded-3xl p-6 shadow-2xl text-white">
-                            <div class="flex justify-between items-center pb-4 border-b border-gray-800">
-                                <div class="flex items-center space-x-2">
-                                    <span class="text-lg font-black text-white">EcoCash</span>
-                                    <span class="text-xs font-semibold bg-green-500/20 text-green-400 border border-green-500/30 px-2 py-0.5 rounded-full">Active Gateway</span>
-                                </div>
-                                <span class="text-xs text-gray-400 font-mono">STATUS: OK</span>
-                            </div>
-
-                            <div class="my-6 text-center py-6 bg-blue-950/40 rounded-2xl border border-blue-800/40">
-                                <div class="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto mb-3 border border-green-500/40">
-                                    <i class="fa-solid fa-check text-3xl"></i>
-                                </div>
-                                <p class="text-xs font-bold uppercase text-gray-400 tracking-wider">Automated Settlement</p>
-                                <h3 class="text-3xl font-black text-ecoYellow mt-1">$1,000.00 USD</h3>
-                                <p class="text-xs text-green-400 font-medium mt-2">Dispatched to Mobile Handset</p>
-                            </div>
-
-                            <div class="space-y-2.5 text-xs">
-                                <div class="flex justify-between text-gray-300">
-                                    <span>Sample Capital:</span>
-                                    <span class="font-bold text-white">$100.00 USD</span>
-                                </div>
-                                <div class="flex justify-between text-gray-300">
-                                    <span>Guaranteed Profit:</span>
-                                    <span class="font-bold text-ecoYellow">10x ($1,000 Total Return)</span>
-                                </div>
-                                <div class="flex justify-between text-gray-300">
-                                    <span>EcoCash Payout:</span>
-                                    <span class="font-bold text-green-400">Instant Handset Credit</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="input-group">
+                    <div class="input-header">
+                        <span class="input-label">Loan Term</span>
+                        <span class="input-value" id="termValue">12 months</span>
                     </div>
+                    <input type="range" class="slider" min="6" max="60" step="6" value="12" id="termSlider">
+                    <div class="range-labels"><span>6 months</span><span>60 months</span></div>
                 </div>
-
+                <div class="payment-box">
+                    <span class="payment-label">Monthly Payment</span>
+                    <span class="payment-amount" id="paymentAmount">$450.00</span>
+                </div>
             </div>
+            <button class="apply-btn" id="applyBtn">APPLY NOW</button>
         </div>
-    </section>
-
-    <!-- LIVE METRICS COUNTER BAR -->
-    <section class="bg-white py-8 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-                <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 shadow-sm">
-                    <p class="text-xs font-bold uppercase tracking-wider text-gray-500">Active Zimbabwean Investors</p>
-                    <h3 class="text-3xl font-black text-ecoBlue mt-1">52,410+</h3>
-                    <p class="text-xs text-green-600 font-semibold mt-1"><i class="fa-solid fa-arrow-trend-up"></i> Growing daily</p>
-                </div>
-                <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 shadow-sm">
-                    <p class="text-xs font-bold uppercase tracking-wider text-gray-500">Total Capital Processed</p>
-                    <h3 class="text-3xl font-black text-ecoBlue mt-1">$6,200,000+</h3>
-                    <p class="text-xs text-gray-500 font-medium mt-1">Verified USD Vault</p>
-                </div>
-                <div class="p-4 rounded-xl bg-gray-50 border border-gray-100 shadow-sm">
-                    <p class="text-xs font-bold uppercase tracking-wider text-gray-500">Total Profits Paid Out</p>
-                    <h3 class="text-3xl font-black text-green-600 mt-1">$31,500,000+</h3>
-                    <p class="text-xs text-green-600 font-semibold mt-1"><i class="fa-solid fa-circle-check"></i> 100% Guaranteed Rate</p>
-                </div>
-            </div>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">⚡</div>Fast Approval<br>Within 24 hours</div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>Low Rates<br>From 8%</div>
+            <div class="feature">
+                <div class="feature-icon">🔒</div>Secure<br>Bank-level</div>
         </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-16 bg-white border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-6">
-                    <span class="text-ecoRed text-xs font-extrabold uppercase tracking-widest bg-red-50 px-3 py-1 rounded-full border border-red-100">About Us</span>
-                    <h2 class="text-3xl sm:text-4xl font-black text-gray-900 leading-tight">
-                        Empowering Financial Freedom Across Zimbabwe
-                    </h2>
-                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
-                        Zimbabwe EcoCash Investment provides a high-yield, transparent investment framework designed to help individuals grow their money safely. By integrating directly with Econet EcoCash, we make funding investments and receiving automated profits instant
-                        and hassle-free.
-                    </p>
-                    <ul class="space-y-3 text-sm text-gray-700 font-medium">
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 text-lg mr-3"></i> Fully automated payout algorithm to EcoCash wallets.</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 text-lg mr-3"></i> Zero hidden fees or withdrawal transaction hold-ups.</li>
-                        <li class="flex items-center"><i class="fa-solid fa-circle-check text-green-500 text-lg mr-3"></i> Dedicated 24/7 Zimbabwean client care team.</li>
-                    </ul>
-                </div>
-                <div class="bg-ecoLightBlue p-8 rounded-3xl border border-blue-200 text-center space-y-6 shadow-sm">
-                    <div class="w-16 h-16 bg-ecoBlue text-white rounded-2xl flex items-center justify-center mx-auto text-2xl shadow-lg">
-                        <i class="fa-solid fa-wallet"></i>
-                    </div>
-                    <h3 class="text-2xl font-black text-ecoBlue">Ready to Multiply Your Funds?</h3>
-                    <p class="text-gray-600 text-xs sm:text-sm">Select an investment tier today and experience instant payout delivery to your line.</p>
-                    <button onclick="redirectToApply()" class="w-full bg-ecoRed hover:bg-ecoRedHover text-white font-extrabold py-4 rounded-xl shadow-lg transition transform active:scale-95">
-                        Start Investing Now
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INVESTMENT TIERS & INTERACTIVE CALCULATOR -->
-    <section id="calculator" class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-ecoRed text-xs font-extrabold uppercase tracking-widest bg-red-100 px-3 py-1 rounded-full">High Return Tiers</span>
-                <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mt-3">Choose Your Investment Plan</h2>
-                <p class="text-gray-600 text-sm sm:text-base mt-2">Guaranteed earnings automatically dispatched to your EcoCash mobile wallet.</p>
-            </div>
-
-            <!-- Tier Cards Grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-
-                <!-- Plan 1 -->
-                <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-sm hover:border-ecoBlue transition flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-blue-100 text-ecoBlue text-xs font-bold px-3 py-1 rounded-full uppercase">Starter Plan</span>
-                            <span class="text-xs font-bold text-gray-500">10x Yield</span>
-                        </div>
-                        <p class="text-xs text-gray-500 uppercase font-semibold">Invest Capital</p>
-                        <h3 class="text-4xl font-black text-gray-900 my-1">$100</h3>
-                        <div class="my-6 p-4 bg-ecoLightBlue rounded-xl border border-blue-100 text-center">
-                            <p class="text-xs font-bold text-ecoBlue uppercase">Guaranteed Profit</p>
-                            <h4 class="text-3xl font-black text-ecoBlue mt-1">$1,000 USD</h4>
-                        </div>
-                        <ul class="space-y-2.5 text-xs text-gray-600 mb-6">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Instant EcoCash Direct Handset Credit</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Fast 24-Hour Return Cycle</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Zero Transaction Fee</li>
-                        </ul>
-                    </div>
-                    <button onclick="redirectToApply()" class="w-full bg-ecoBlue hover:bg-ecoBlueHover text-white font-extrabold py-3.5 rounded-xl transition shadow">
-                        Invest $100 Now
-                    </button>
-                </div>
-
-                <!-- Plan 2 (Highlighted Popular Plan) -->
-                <div class="bg-darkNavy text-white rounded-2xl p-6 border-2 border-ecoYellow shadow-xl relative flex flex-col justify-between transform md:-translate-y-2">
-                    <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 gold-badge text-gray-900 text-[11px] font-black uppercase px-4 py-1 rounded-full shadow">
-                        Most Popular Choice
-                    </div>
-                    <div>
-                        <div class="flex justify-between items-center mb-4 mt-2">
-                            <span class="bg-yellow-400/20 text-ecoYellow text-xs font-bold px-3 py-1 rounded-full uppercase border border-yellow-400/30">Growth Plan</span>
-                            <span class="text-xs font-bold text-ecoYellow">10x Yield</span>
-                        </div>
-                        <p class="text-xs text-gray-400 uppercase font-semibold">Invest Capital</p>
-                        <h3 class="text-4xl font-black text-white my-1">$1,000</h3>
-                        <div class="my-6 p-4 bg-blue-950 rounded-xl border border-yellow-400/30 text-center">
-                            <p class="text-xs font-bold text-ecoYellow uppercase">Guaranteed Profit</p>
-                            <h4 class="text-3xl font-black text-yellow-300 mt-1">$10,000 USD</h4>
-                        </div>
-                        <ul class="space-y-2.5 text-xs text-gray-300 mb-6">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-ecoYellow mr-2"></i> Priority Automated Settlement</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-ecoYellow mr-2"></i> Dedicated Account Advisor</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-ecoYellow mr-2"></i> Zero Processing Fee</li>
-                        </ul>
-                    </div>
-                    <button onclick="redirectToApply()" class="w-full bg-ecoYellow hover:bg-yellow-400 text-gray-900 font-extrabold py-3.5 rounded-xl transition shadow-lg">
-                        Invest $1,000 Now
-                    </button>
-                </div>
-
-                <!-- Plan 3 (VIP Plan) -->
-                <div class="bg-white rounded-2xl p-6 border-2 border-gray-200 shadow-sm hover:border-ecoRed transition flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-4">
-                            <span class="bg-red-100 text-ecoRed text-xs font-bold px-3 py-1 rounded-full uppercase">VIP Platinum Tier</span>
-                            <span class="text-xs font-bold text-ecoRed">100x Multiplier</span>
-                        </div>
-                        <p class="text-xs text-gray-500 uppercase font-semibold">Invest Capital</p>
-                        <h3 class="text-4xl font-black text-gray-900 my-1">$10,000</h3>
-                        <div class="my-6 p-4 bg-red-50 rounded-xl border border-red-100 text-center">
-                            <p class="text-xs font-bold text-ecoRed uppercase">Maximum Profit Return</p>
-                            <h4 class="text-3xl font-black text-ecoRed mt-1">$1,000,000 USD</h4>
-                        </div>
-                        <ul class="space-y-2.5 text-xs text-gray-600 mb-6">
-                            <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Maximum Capital Allocation</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> Instant VIP Handset Transfer</li>
-                            <li class="flex items-center"><i class="fa-solid fa-check text-green-500 mr-2"></i> VIP Concierge Support</li>
-                        </ul>
-                    </div>
-                    <button onclick="redirectToApply()" class="w-full bg-ecoRed hover:bg-ecoRedHover text-white font-extrabold py-3.5 rounded-xl transition shadow">
-                        Invest $10,000 Now
-                    </button>
-                </div>
-
-            </div>
-
-            <!-- Custom Interactive Profit Calculator Box -->
-            <div class="bg-white rounded-3xl p-6 sm:p-10 shadow-lg border border-gray-200">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-                    <div class="lg:col-span-7 space-y-6">
-                        <h3 class="text-2xl font-bold text-gray-900">Custom Return Calculator</h3>
-
-                        <div>
-                            <div class="flex justify-between items-center mb-2">
-                                <label class="text-sm font-bold text-gray-700">Set Your Investment ($USD):</label>
-                                <span id="sliderDisplay" class="text-2xl font-black text-ecoBlue">$500</span>
-                            </div>
-                            <input type="range" id="profitSlider" min="50" max="10000" step="50" value="500" oninput="updateCalculator()" class="w-full">
-                            <div class="flex justify-between text-xs text-gray-400 font-medium mt-1">
-                                <span>Min: $50</span>
-                                <span>$2,500</span>
-                                <span>$5,000</span>
-                                <span>Max: $10,000</span>
-                            </div>
-                        </div>
-
-                        <!-- Manual Input Sync -->
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-500 mb-1">Or Enter Exact Amount ($USD):</label>
-                            <div class="relative max-w-xs">
-                                <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500 font-bold">$</span>
-                                <input type="number" id="manualAmountInput" value="500" min="10" max="100000" oninput="syncManualCalculator()" class="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-lg text-sm font-bold focus:outline-none focus:border-ecoBlue">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-5 bg-ecoLightBlue p-6 rounded-2xl border border-blue-200 text-center space-y-4">
-                        <p class="text-xs font-bold text-gray-600 uppercase">Estimated Return Output</p>
-                        <h3 id="calculatorResult" class="text-4xl sm:text-5xl font-black text-ecoBlue">$5,000 USD</h3>
-                        <p class="text-xs text-gray-500">Calculated based on standard 10x guaranteed yield rates.</p>
-                        <button onclick="redirectToApply()" class="w-full bg-ecoRed hover:bg-ecoRedHover text-white font-extrabold py-4 rounded-xl shadow-lg transition transform active:scale-95">
-                            Invest This Amount Now
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- INTERACTIVE DEPOSIT & WITHDRAWAL TERMINAL -->
-    <section id="simulator" class="py-16 bg-gray-900 text-white border-t border-gray-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-10">
-                <span class="text-ecoYellow text-xs font-extrabold uppercase tracking-widest">EcoCash Portal</span>
-                <h2 class="text-3xl font-black text-white mt-2">Mobile Wallet Transaction Terminal</h2>
-                <p class="text-gray-400 text-sm mt-1">Initiate investment funding or direct payout requests.</p>
-            </div>
-
-            <!-- Tab Buttons -->
-            <div class="bg-gray-800 p-1.5 rounded-xl flex max-w-xs mx-auto mb-8 border border-gray-700">
-                <button id="tabDep" onclick="switchTerminalTab('deposit')" class="w-1/2 py-2 text-xs font-bold rounded-lg transition bg-ecoBlue text-white shadow">Deposit</button>
-                <button id="tabWith" onclick="switchTerminalTab('withdraw')" class="w-1/2 py-2 text-xs font-bold rounded-lg transition text-gray-400 hover:text-white">Withdraw</button>
-            </div>
-
-            <!-- Terminal Form -->
-            <div class="bg-gray-950 p-6 sm:p-8 rounded-2xl border border-gray-800 shadow-2xl">
-
-                <!-- Deposit Form -->
-                <form id="formDeposit" onsubmit="handleTerminalSubmit(event)" class="space-y-4">
-                    <div class="flex items-center space-x-2 text-xs font-bold text-green-400 mb-2">
-                        <i class="fa-solid fa-arrow-down-to-bracket"></i>
-                        <span>EcoCash Mobile Deposit Prompt</span>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-1">EcoCash Handset Number</label>
-                        <input type="text" placeholder="+263 77X XXX XXX" required class="w-full bg-gray-900 border border-gray-800 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-ecoBlue">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-1">Select Investment Amount ($USD)</label>
-                        <select class="w-full bg-gray-900 border border-gray-800 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-ecoBlue">
-                            <option value="100">$100 USD (Starter Tier - Returns $1,000)</option>
-                            <option value="500">$500 USD (Growth Tier - Returns $5,000)</option>
-                            <option value="1000">$1,000 USD (Popular Tier - Returns $10,000)</option>
-                            <option value="10000">$10,000 USD (VIP Platinum - Returns $1,000,000)</option>
-                        </select>
-                    </div>
-
-                    <button type="submit" class="w-full bg-green-600 hover:bg-green-500 text-white font-extrabold py-3.5 rounded-xl transition shadow">
-                        Proceed To Application & Payment
-                    </button>
-                </form>
-
-                <!-- Withdraw Form -->
-                <form id="formWithdraw" action="apply.html" method="GET" onsubmit="handleTerminalSubmit(event)" class="space-y-4 hidden">
-                    <div class="flex items-center space-x-2 text-xs font-bold text-ecoYellow mb-2">
-                        <i class="fa-solid fa-arrow-up-from-bracket"></i>
-                        <span>EcoCash Direct Payout Withdrawal</span>
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-1">Destination EcoCash Number</label>
-                        <input type="text" placeholder="+263 77X XXX XXX" required class="w-full bg-gray-900 border border-gray-800 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-ecoYellow">
-                    </div>
-
-                    <div>
-                        <label class="block text-xs font-bold text-gray-300 mb-1">Withdrawal Amount ($USD)</label>
-                        <input type="number" placeholder="Enter payout amount" min="10" required class="w-full bg-gray-900 border border-gray-800 rounded-lg p-3 text-white text-sm focus:outline-none focus:border-ecoYellow">
-                    </div>
-
-                    <button type="submit" class="w-full bg-ecoYellow hover:bg-yellow-400 text-gray-900 font-extrabold py-3.5 rounded-xl transition shadow">
-                        Proceed To Application & Payout
-                    </button>
-                </form>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer id="contact" class="bg-darkNavy text-gray-400 py-12 border-t border-gray-800 text-xs mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-                <div class="space-y-3">
-                    <div class="flex items-center space-x-1">
-                        <span class="text-2xl font-black text-white">Eco</span>
-                        <span class="text-2xl font-black text-ecoRed">Cash</span>
-                        <span class="text-[10px] bg-ecoRed text-white px-1.5 py-0.5 rounded font-bold ml-1">ZW</span>
-                    </div>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Zimbabwe's official automated EcoCash investment network. Facilitating high-yield returns and fast mobile handset wallet payouts.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Quick Navigation</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#home" class="hover:text-white transition">Home</a></li>
-                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="#calculator" class="hover:text-white transition">Investment Plans</a></li>
-                        <li><a href="#simulator" class="hover:text-white transition">EcoCash Terminal</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Direct Actions</h4>
-                    <ul class="space-y-2">
-                        <li><a href="apply.html" class="hover:text-white transition">Apply For Investment</a></li>
-                        <li><a href="apply.html" class="hover:text-white transition">Deposit Wallet Funds</a></li>
-                        <li><a href="apply.html" class="hover:text-white transition">Request Withdrawal Payout</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-[11px]">Contact & Location</h4>
-                    <p class="text-gray-400 mb-2"><i class="fa-solid fa-location-dot mr-1.5 text-ecoRed"></i> Harare, Zimbabwe</p>
-                    <p class="text-gray-400 mb-2"><i class="fa-solid fa-envelope mr-1.5 text-ecoBlue"></i> support@ecocash-invest.co.zw</p>
-                    <p class="text-gray-400"><i class="fa-solid fa-phone mr-1.5 text-green-400"></i> +263 77 000 0000</p>
-                </div>
-
-            </div>
-
-            <div class="pt-8 border-t border-gray-800 text-center text-gray-500 text-[11px] flex flex-col sm:flex-row justify-between items-center gap-4">
-                <p>© 2026 Zimbabwe EcoCash Investment. All rights reserved.</p>
-                <div class="flex space-x-4">
-                    <a href="apply.html" class="text-gray-400 hover:text-white"><i class="fa-brands fa-facebook-f text-sm"></i></a>
-                    <a href="apply.html" class="text-gray-400 hover:text-white"><i class="fa-brands fa-whatsapp text-sm"></i></a>
-                    <a href="apply.html" class="text-gray-400 hover:text-white"><i class="fa-brands fa-telegram text-sm"></i></a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JAVASCRIPT LOGIC -->
+    </main>
+    <footer>© 2025 EcoCash</footer>
     <script>
-        // 1. Mandatory Redirect Handler to apply.html
-        function redirectToApply() {
-            window.location.href = 'apply.html';
-        }
+        const amountSlider = document.getElementById('amountSlider');
+        const termSlider = document.getElementById('termSlider');
+        const amountValue = document.getElementById('amountValue');
+        const termValue = document.getElementById('termValue');
+        const paymentAmount = document.getElementById('paymentAmount');
 
-        // 2. Mobile Menu Drawer Handler
-        function toggleMobileMenu() {
-            const drawer = document.getElementById('mobileDrawer');
-            const icon = document.getElementById('menuIcon');
-            drawer.classList.toggle('hidden');
-            if (drawer.classList.contains('hidden')) {
-                icon.className = 'fa-solid fa-bars text-2xl';
-            } else {
-                icon.className = 'fa-solid fa-xmark text-2xl';
-            }
-        }
-
-        // 3. Calculator Range Slider & Manual Input Sync
         function updateCalculator() {
-            const slider = document.getElementById('profitSlider');
-            const val = parseFloat(slider.value);
-            document.getElementById('sliderDisplay').textContent = '$' + val.toLocaleString('en-US');
-            document.getElementById('manualAmountInput').value = val;
-
-            let profit = val * 10;
-            if (val >= 10000) {
-                profit = val * 100;
-            }
-            document.getElementById('calculatorResult').textContent = '$' + profit.toLocaleString('en-US') + ' USD';
-        }
-
-        function syncManualCalculator() {
-            const inputVal = parseFloat(document.getElementById('manualAmountInput').value) || 0;
-            const slider = document.getElementById('profitSlider');
-            if (inputVal >= 50 && inputVal <= 10000) {
-                slider.value = inputVal;
-            }
-            document.getElementById('sliderDisplay').textContent = '$' + inputVal.toLocaleString('en-US');
-            let profit = inputVal * 10;
-            if (inputVal >= 10000) {
-                profit = inputVal * 100;
-            }
-            document.getElementById('calculatorResult').textContent = '$' + inputVal.toLocaleString('en-US') + ' USD';
-        }
-
-        // 4. Terminal Deposit/Withdraw Tab Switcher
-        function switchTerminalTab(tab) {
-            const depBtn = document.getElementById('tabDep');
-            const withBtn = document.getElementById('tabWith');
-            const depForm = document.getElementById('formDeposit');
-            const withForm = document.getElementById('formWithdraw');
-
-            if (tab === 'deposit') {
-                depBtn.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition bg-ecoBlue text-white shadow';
-                withBtn.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition text-gray-400 hover:text-white';
-                depForm.classList.remove('hidden');
-                withForm.classList.add('hidden');
+            const amount = parseFloat(amountSlider.value);
+            const months = parseFloat(termSlider.value);
+            amountValue.textContent = '$' + amount.toLocaleString();
+            termValue.textContent = months + (months === 1 ? ' month' : ' months');
+            const annualRate = 0.08;
+            const monthlyRate = annualRate / 12;
+            if (months === 0) {
+                paymentAmount.textContent = '$' + amount.toFixed(2);
             } else {
-                withBtn.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition bg-ecoYellow text-gray-900 shadow';
-                depBtn.className = 'w-1/2 py-2 text-xs font-bold rounded-lg transition text-gray-400 hover:text-white';
-                withForm.classList.remove('hidden');
-                depForm.classList.add('hidden');
+                const power = Math.pow(1 + monthlyRate, months);
+                const monthlyPayment = amount * (monthlyRate * power) / (power - 1);
+                paymentAmount.textContent = '$' + monthlyPayment.toFixed(2);
             }
         }
-
-        // 5. Terminal Form Submit Handler
-        function handleTerminalSubmit(e) {
-            e.preventDefault();
-            redirectToApply();
-        }
+        updateCalculator();
+        amountSlider.addEventListener('input', updateCalculator);
+        termSlider.addEventListener('input', updateCalculator);
+        document.getElementById('applyBtn').addEventListener('click', function() {
+            localStorage.setItem('loanAmount', amountSlider.value);
+            localStorage.setItem('loanTerm', termSlider.value);
+            window.location.href = 'application.html';
+        });
     </script>
 </body>
 
